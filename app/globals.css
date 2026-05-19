@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-pergami: #F5EDD6;
+  --color-bru: #3D1F0D;
+  --color-bordeus: #8B1A1A;
+  --color-daurat: #C4A44A;
+  --color-tinta: #2C1810;
+}
+
+body {
+  background-color: var(--color-pergami);
+  color: var(--color-tinta);
+  font-family: var(--font-dm-sans), sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Decorative divider */
+.divider-daurat {
+  border-color: var(--color-daurat);
+  opacity: 0.5;
+}
+
+/* Scrollbar suau */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-pergami);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-daurat);
+  border-radius: 2px;
+}
