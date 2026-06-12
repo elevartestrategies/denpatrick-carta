@@ -23,13 +23,12 @@ export default function Header({ lang, backHref, backLabel, title, showLangSwitc
     router.push('/')
   }
 
-  const switchLabel =
-    lang === 'ca' ? 'Canviar idioma' : lang === 'es' ? 'Cambiar idioma' : 'Changer de langue'
+  const switchLabel = t('canviarIdioma', lang)
 
   return (
     <header className="sticky top-0 z-10 bg-pergami border-b border-daurat/30 shadow-sm">
       <div className="max-w-lg mx-auto px-4 h-14 flex items-center justify-between gap-2">
-        {/* Left — back or logo */}
+        {/* Left — back or logo+name */}
         {backHref ? (
           <Link
             href={backHref}
@@ -45,20 +44,24 @@ export default function Header({ lang, backHref, backLabel, title, showLangSwitc
             className="flex items-center gap-2 min-h-[44px] text-left"
             aria-label={switchLabel}
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images.jpeg" alt="Den Patrick" className="h-8 w-auto object-contain rounded" />
             <span className="font-cinzel text-bru text-sm font-bold tracking-wide leading-tight">
               Den Patrick
             </span>
           </button>
         )}
 
-        {/* Center — category title */}
-        {title && (
+        {/* Center — category title or empty */}
+        {title ? (
           <h1 className="font-cinzel text-bru text-sm font-bold truncate max-w-[160px] text-center flex-1">
             {title}
           </h1>
+        ) : (
+          <div className="flex-1" />
         )}
 
-        {/* Right — language switch globe */}
+        {/* Right — language switch globe or small logo */}
         {showLangSwitch ? (
           <button
             onClick={switchLang}
@@ -73,7 +76,10 @@ export default function Header({ lang, backHref, backLabel, title, showLangSwitc
             </svg>
           </button>
         ) : (
-          <div className="min-w-[44px]" />
+          <div className="min-w-[44px] flex items-center justify-end">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images.jpeg" alt="" aria-hidden className="h-6 w-auto object-contain opacity-40 rounded" />
+          </div>
         )}
       </div>
     </header>

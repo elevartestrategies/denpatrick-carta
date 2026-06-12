@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation'
 import { motion, useReducedMotion } from 'framer-motion'
 import type { Lang } from '@/lib/carta-data'
 import { LANG_NAMES, LANGS } from '@/lib/i18n'
-import { CrepesDolcesIcon } from '@/components/icons'
 
 const STORAGE_KEY = 'dp-lang'
 
@@ -34,9 +33,12 @@ export default function IdiomaSelectorPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: 'easeOut' }}
       >
-        <div className="w-24 h-24 rounded-full border-4 border-daurat flex items-center justify-center bg-bru mb-5 shadow-lg">
-          <CrepesDolcesIcon size={56} />
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images.jpeg"
+          alt="Den Patrick"
+          className="h-24 w-auto object-contain mb-5 rounded-xl shadow-lg"
+        />
         <h1 className="font-cinzel text-bru text-2xl font-bold tracking-wider text-center">
           Den Patrick
         </h1>
@@ -45,12 +47,12 @@ export default function IdiomaSelectorPage() {
         </p>
         <div className="mt-4 w-16 h-px bg-daurat opacity-60" />
         <p className="font-cinzel text-bru/70 text-xs mt-4 tracking-widest text-center uppercase">
-          Benvinguts · Bienvenidos · Bienvenue
+          Benvinguts · Bienvenidos · Bienvenue · Welcome
         </p>
       </motion.div>
 
-      {/* Botons d'idioma amb stagger */}
-      <div className="flex-1 flex flex-col gap-4 px-6 pb-10 max-w-sm mx-auto w-full">
+      {/* Botons d'idioma — grid 2×2 */}
+      <div className="flex-1 grid grid-cols-2 gap-3 px-6 pb-10 max-w-sm mx-auto w-full content-start pt-2">
         {LANGS.map((lang, i) => (
           <motion.button
             key={lang}
@@ -60,17 +62,17 @@ export default function IdiomaSelectorPage() {
             transition={{
               duration: 0.3,
               ease: 'easeOut',
-              delay: reduce ? 0 : 0.1 + i * 0.1,
+              delay: reduce ? 0 : 0.1 + i * 0.08,
             }}
             whileHover={reduce ? {} : { scale: 1.03, boxShadow: '0 8px 28px rgba(61,31,13,0.2)' }}
             whileTap={reduce ? {} : { scale: 0.97 }}
             className="
-              w-full min-h-[72px] rounded-2xl
+              w-full min-h-[80px] rounded-2xl
               bg-bru text-pergami
-              font-cinzel text-xl font-bold tracking-wide
+              font-cinzel text-base font-bold tracking-wide
               border-2 border-daurat/60
               shadow-md
-              flex items-center justify-center gap-3
+              flex items-center justify-center gap-2
             "
           >
             {LANG_NAMES[lang]}

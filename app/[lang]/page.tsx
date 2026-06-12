@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ca: 'Den Patrick — Carta',
     es: 'Den Patrick — Carta',
     fr: 'Den Patrick — Carte',
+    en: 'Den Patrick — Menu',
   }
   return { title: titles[lang] ?? 'Den Patrick' }
 }

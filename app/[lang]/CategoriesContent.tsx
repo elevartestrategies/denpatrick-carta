@@ -32,8 +32,7 @@ export default function CategoriesContent({ lang, categories }: Props) {
     router.push('/')
   }
 
-  const switchLabel =
-    lang === 'ca' ? 'Canviar idioma' : lang === 'es' ? 'Cambiar idioma' : 'Changer de langue'
+  const switchLabel = t('canviarIdioma', lang)
 
   return (
     <div className="min-h-screen flex flex-col">

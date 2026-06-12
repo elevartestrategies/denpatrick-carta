@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: 'Den Patrick — Carta',
   description: 'Crêperie Bretonne & Gelateria Artesana · Sant Esteve de Palautordera',
   robots: 'noindex',
+  icons: { icon: '/images.jpeg' },
 }
 
 export const viewport: Viewport = {
